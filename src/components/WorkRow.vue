@@ -14,23 +14,22 @@ defineProps({
     :to="{ name: 'work-detail', params: { slug: work.slug } }"
     class="work-row"
   >
-    <!-- 中繼資料列，欄位對齊下方圖片網格 -->
+    <!-- 中繼資料列，欄位對齊下方圖片 -->
     <header class="work-row__meta">
       <span class="work-row__field">{{ work.index }}. {{ work.title }}</span>
-      <span class="work-row__field">{{ work.client }}</span>
-      <span class="work-row__field">{{ work.category }}</span>
-      <span class="work-row__field">{{ work.year }}</span>
+      <span class="work-row__field">{{ work.status }}</span>
+      <span class="work-row__field">{{ work.skills.join('・') }}</span>
     </header>
 
-    <div class="work-row__grid">
-      <div
-        v-for="item in work.items"
-        :key="item.label"
-        class="work-row__item"
-        :style="{ backgroundColor: item.tone }"
-      >
-        <span class="work-row__label">{{ item.label }}</span>
-      </div>
+    <div class="work-row__visual" :style="{ backgroundColor: work.tone }">
+      <img
+        v-if="work.imageSrc"
+        :src="work.imageSrc"
+        :alt="work.title"
+        class="work-row__image"
+        loading="lazy"
+      />
+      <span v-else class="work-row__placeholder">無畫面</span>
     </div>
   </RouterLink>
 </template>
@@ -44,43 +43,45 @@ defineProps({
 
 .work-row__meta {
   display: grid;
-  grid-template-columns: repeat(v.$grid-columns, 1fr);
+  // 標題欄較寬，狀態與技術各佔一份
+  grid-template-columns: 2fr 1fr 1fr;
   padding: 0.4rem 0;
   border-top: 1px solid v.$color-rule;
 }
 
 .work-row__field {
-  // 每欄等量內縮，維持與下方圖片網格的欄位對應
+  // 每欄等量內縮，維持與下方圖片的對應
   padding-left: 0.5rem;
   padding-right: 1rem;
   font-size: v.$font-size-meta;
   letter-spacing: v.$letter-spacing-meta;
-  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-// 圖與圖之間不留間距，連成整片
-.work-row__grid {
-  display: grid;
-  grid-template-columns: repeat(v.$grid-columns, 1fr);
-  transition: opacity 0.2s ease;
-}
-
-.work-row:hover .work-row__grid {
-  opacity: 0.75;
-}
-
-.work-row__item {
+// 網站截圖為橫向，以 16:9 完整呈現不裁切成方形
+.work-row__visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
 }
 
-// 佔位文字，實際圖片就位後移除
-.work-row__label {
+.work-row:hover .work-row__visual {
+  opacity: 0.75;
+}
+
+.work-row__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.work-row__placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-size: v.$font-size-meta;
   letter-spacing: v.$letter-spacing-meta;
@@ -90,19 +91,11 @@ defineProps({
 @media (max-width: v.$breakpoint-md) {
   .work-row__meta {
     grid-template-columns: 1fr auto;
-    gap: 0.5rem;
   }
 
-  .work-row__field:nth-child(2) {
-    display: none;
-  }
-
+  // 窄螢幕僅保留標題與狀態
   .work-row__field:nth-child(3) {
     display: none;
-  }
-
-  .work-row__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

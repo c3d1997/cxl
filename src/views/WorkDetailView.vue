@@ -41,26 +41,39 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
         <h1 class="work-detail__title">{{ work.title }}</h1>
 
         <dl class="work-detail__meta">
-          <dt>客戶</dt>
-          <dd>{{ work.client }}</dd>
-          <dt>類型</dt>
-          <dd>{{ work.category }}</dd>
-          <dt>年份</dt>
-          <dd>{{ work.year }}</dd>
+          <dt>狀態</dt>
+          <dd>{{ work.status }}</dd>
         </dl>
 
         <p class="work-detail__description">{{ work.description }}</p>
+
+        <ul class="work-detail__skills">
+          <li v-for="skill in work.skills" :key="skill" class="work-detail__skill">
+            {{ skill }}
+          </li>
+        </ul>
+
+        <a
+          v-if="work.link"
+          :href="work.link"
+          class="work-detail__link"
+          target="_blank"
+          rel="noopener"
+        >
+          前往網站 ↗
+        </a>
       </div>
 
       <!-- 右欄：大圖 -->
       <div class="work-detail__gallery">
-        <figure
-          v-for="item in work.items"
-          :key="item.label"
-          class="work-detail__figure"
-          :style="{ backgroundColor: item.tone }"
-        >
-          <figcaption class="work-detail__caption">{{ item.label }}</figcaption>
+        <figure class="work-detail__figure" :style="{ backgroundColor: work.tone }">
+          <img
+            v-if="work.imageSrc"
+            :src="work.imageSrc"
+            :alt="work.title"
+            class="work-detail__image"
+          />
+          <figcaption v-else class="work-detail__caption">無畫面</figcaption>
         </figure>
       </div>
     </template>
@@ -112,6 +125,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 .work-detail__title {
   margin: 0.25rem 0 1.5rem;
   font-size: 1.5rem;
+  line-height: 1.4;
 }
 
 .work-detail__meta {
@@ -129,8 +143,36 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
 .work-detail__description {
   max-width: 32em;
-  font-size: v.$font-size-nav;
-  line-height: 1.8;
+  font-size: v.$font-size-body;
+  line-height: 1.9;
+}
+
+.work-detail__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-detail__skill {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid v.$color-rule;
+  color: v.$color-secondary;
+  font-size: v.$font-size-meta;
+  letter-spacing: v.$letter-spacing-meta;
+}
+
+.work-detail__link {
+  display: inline-flex;
+  align-items: center;
+  // 維持最小觸控尺寸
+  min-height: v.$tap-target-min;
+  margin-top: 1rem;
+  font-size: v.$font-size-body;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 .work-detail__gallery {
@@ -142,14 +184,22 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
 .work-detail__figure {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  // 大圖以 4:3 呈現，比索引頁的方形更接近實際作品照
-  aspect-ratio: 4 / 3;
+}
+
+// 無圖片時以色塊填補，維持與有圖列相同的高度節奏
+.work-detail__figure:not(:has(img)) {
+  aspect-ratio: 16 / 9;
+}
+
+.work-detail__image {
+  width: 100%;
+  height: auto;
 }
 
 .work-detail__caption {
-  padding: 0.5rem;
   color: rgba(255, 255, 255, 0.5);
   font-size: v.$font-size-meta;
   letter-spacing: v.$letter-spacing-meta;
@@ -158,7 +208,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 
 .work-detail__missing {
   padding: 1.5rem;
-  font-size: v.$font-size-nav;
+  font-size: v.$font-size-body;
 }
 
 @media (max-width: v.$breakpoint-md) {
@@ -170,6 +220,11 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
   .work-detail__text {
     position: static;
     flex: none;
+  }
+
+  // 標題保留右側空間，避免被固定的 (Close) 壓住
+  .work-detail__title {
+    padding-right: 5rem;
   }
 }
 </style>
