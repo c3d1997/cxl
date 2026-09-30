@@ -1,0 +1,59 @@
+# ====== 相依套件 ======
+node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ====== 建置產物 ======
+dist/
+dist-ssr/
+build/
+out/
+*.local
+
+# ====== 環境變數 ======
+.env
+.env.*
+!.env.example
+
+# ====== 日誌 ======
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ====== 測試與快取 ======
+coverage/
+*.lcov
+.nyc_output/
+.cache/
+.temp/
+.vite/
+.eslintcache
+.stylelintcache
+
+# ====== 編輯器 / IDE ======
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ====== 作業系統 ======
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
