@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from 'vue-router'
+
 defineProps({
   work: {
     type: Object,
@@ -8,7 +10,10 @@ defineProps({
 </script>
 
 <template>
-  <article class="work-row">
+  <RouterLink
+    :to="{ name: 'work-detail', params: { slug: work.slug } }"
+    class="work-row"
+  >
     <!-- 中繼資料列，欄位對齊下方圖片網格 -->
     <header class="work-row__meta">
       <span class="work-row__field">{{ work.index }}. {{ work.title }}</span>
@@ -27,11 +32,15 @@ defineProps({
         <span class="work-row__label">{{ item.label }}</span>
       </div>
     </div>
-  </article>
+  </RouterLink>
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/styles/variables' as v;
+
+.work-row {
+  display: block;
+}
 
 .work-row__meta {
   display: grid;
@@ -56,6 +65,11 @@ defineProps({
 .work-row__grid {
   display: grid;
   grid-template-columns: repeat(v.$grid-columns, 1fr);
+  transition: opacity 0.2s ease;
+}
+
+.work-row:hover .work-row__grid {
+  opacity: 0.75;
 }
 
 .work-row__item {

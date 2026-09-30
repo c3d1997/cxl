@@ -6,22 +6,27 @@
  * @property {string} tone - 佔位色塊的顏色
  *
  * @typedef {Object} Work
+ * @property {string} slug - 網址代稱，對應 /work/:slug
  * @property {number} index - 顯示編號，由大到小排列（新作在上）
  * @property {string} title
  * @property {string} client
  * @property {string} category
  * @property {number} year
+ * @property {string} description - 詳細頁左側說明文字
  * @property {WorkItem[]} items
  */
 
 /** @type {Work[]} */
 export const works = [
   {
+    slug: 'project-d',
     index: 4,
     title: '專案名稱 D',
     client: '客戶名稱',
     category: 'WEB',
     year: 2025,
+    description:
+      '此處放專案說明。可以描述需求背景、負責範圍、使用的技術與設計決策，以及最終成果。段落長度不限，左欄會隨內容延伸。',
     items: [
       { label: '圖 01', tone: '#2b2b2b' },
       { label: '圖 02', tone: '#8d8d8d' },
@@ -30,11 +35,13 @@ export const works = [
     ],
   },
   {
+    slug: 'project-c',
     index: 3,
     title: '專案名稱 C',
     client: '客戶名稱',
     category: 'BRANDING',
     year: 2024,
+    description: '此處放專案說明。',
     items: [
       { label: '圖 01', tone: '#bcbcbc' },
       { label: '圖 02', tone: '#3a3a3a' },
@@ -43,11 +50,13 @@ export const works = [
     ],
   },
   {
+    slug: 'project-b',
     index: 2,
     title: '專案名稱 B',
     client: '客戶名稱',
     category: 'BOOK',
     year: 2024,
+    description: '此處放專案說明。',
     items: [
       { label: '圖 01', tone: '#5c5c5c' },
       { label: '圖 02', tone: '#dcdcdc' },
@@ -56,11 +65,13 @@ export const works = [
     ],
   },
   {
+    slug: 'project-a',
     index: 1,
     title: '專案名稱 A',
     client: '客戶名稱',
     category: 'IDENTITY',
     year: 2023,
+    description: '此處放專案說明。',
     items: [
       { label: '圖 01', tone: '#9a9a9a' },
       { label: '圖 02', tone: '#333333' },
@@ -69,3 +80,10 @@ export const works = [
     ],
   },
 ]
+
+/**
+ * 依網址代稱取得單一作品
+ * @param {string} slug
+ * @returns {Work | undefined}
+ */
+export const findWorkBySlug = (slug) => works.find((work) => work.slug === slug)

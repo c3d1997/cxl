@@ -1,10 +1,18 @@
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
 import SiteSidebar from '@/components/SiteSidebar.vue'
+
+const route = useRoute()
+
+// 作品詳細頁佔滿整個畫面，不顯示側欄
+const hasSidebar = computed(() => !route.meta?.isFullBleed)
 </script>
 
 <template>
   <div class="app-shell">
-    <SiteSidebar class="app-shell__sidebar" />
+    <SiteSidebar v-if="hasSidebar" class="app-shell__sidebar" />
 
     <main class="app-shell__content">
       <RouterView />
