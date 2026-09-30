@@ -3,6 +3,7 @@ $color-sidebar: #eddce5; // 左欄淡粉底
 $color-canvas: #f4f4f4; // 右欄底色
 $color-ink: #111111;
 $color-rule: #c9c9c9; // 髮絲線
+$color-secondary: #6b6b6b; // 次要文字
 
 // ====== 版面 ======
 $sidebar-width: 35%;
@@ -13,6 +14,8 @@ $grid-columns: 4;
 $font-sans: 'Helvetica Neue', Helvetica, Arial, 'Noto Sans TC', sans-serif;
 $font-size-meta: 0.6875rem; // 11px，中繼資料
 $font-size-nav: 0.875rem; // 14px，導覽；中文在 11px 下筆畫會糊掉
+$font-size-body: 0.875rem; // 14px，內文
+$font-size-lead: 1.375rem; // 22px，自述段落
 $letter-spacing-meta: 0.06em;
 
 // ====== 觸控 ======
