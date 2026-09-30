@@ -87,48 +87,6 @@ const rawWorks = [
     tone: '#5c5c5c',
   },
 
-  // ====== 現職後台專案（無畫面）======
-  {
-    slug: 'message-center',
-    title: '訊息中心',
-    status: '無法提供畫面',
-    description: '',
-    skills: [],
-    tone: '#252525',
-  },
-  {
-    slug: 'game-module',
-    title: '遊戲模組',
-    status: '無法提供畫面',
-    description: '',
-    skills: [],
-    tone: '#787878',
-  },
-  {
-    slug: 'used-car',
-    title: '二手車',
-    status: '無法提供畫面',
-    description: '',
-    skills: [],
-    tone: '#9a9a9a',
-  },
-  {
-    slug: 'headhunting',
-    title: '獵頭',
-    status: '無法提供畫面',
-    description: '',
-    skills: [],
-    tone: '#333333',
-  },
-  {
-    slug: 'coupon',
-    title: '酷碰',
-    status: '無法提供畫面',
-    description: '',
-    skills: [],
-    tone: '#a3a3a3',
-  },
-
   // ====== 2023 年前作品 ======
   {
     slug: 'starvibe',
@@ -228,6 +186,51 @@ const rawWorks = [
     link: 'https://www.behance.net/gallery/184736229/60LINE',
     image: 'shinkong-life-60th',
   },
+
+  // ====== 後台專案（無畫面）======
+  // 現職
+  {
+    slug: 'message-center',
+    title: '訊息中心',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#252525',
+  },
+  {
+    slug: 'game-module',
+    title: '遊戲模組',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#787878',
+  },
+  {
+    slug: 'used-car',
+    title: '二手車',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#9a9a9a',
+  },
+  {
+    slug: 'headhunting',
+    title: '獵頭',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#333333',
+  },
+  {
+    slug: 'coupon',
+    title: '酷碰',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#a3a3a3',
+  },
+
+  // 2023 年前
   {
     slug: 'kgi-securities-system',
     title: '凱基證券共銷查詢系統',
