@@ -1,0 +1,18 @@
+// ====== 色彩 ======
+$color-sidebar: #eddce5; // 左欄淡粉底
+$color-canvas: #f4f4f4; // 右欄底色
+$color-ink: #111111;
+$color-rule: #c9c9c9; // 髮絲線
+
+// ====== 版面 ======
+$sidebar-width: 35%;
+$content-width: 65%;
+$grid-columns: 4;
+
+// ====== 字級 ======
+$font-sans: 'Helvetica Neue', Helvetica, Arial, 'Noto Sans TC', sans-serif;
+$font-size-meta: 0.6875rem; // 11px，中繼資料
+$letter-spacing-meta: 0.06em;
+
+// ====== 斷點 ======
+$breakpoint-md: 768px;

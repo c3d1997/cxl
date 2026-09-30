@@ -1,2 +1,38 @@
-// ====== 全域樣式 ======
-// 排版尚未開始，先僅保留最基本設定
+@use 'variables' as v;
+
+// ====== 基礎重置 ======
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: v.$color-canvas;
+  color: v.$color-ink;
+  font-family: v.$font-sans;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
