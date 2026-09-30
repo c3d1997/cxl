@@ -51,11 +51,12 @@ import { RouterLink } from 'vue-router'
 }
 
 .site-sidebar__link {
-  display: inline-block;
-  padding: 0.15rem 0;
-  font-size: v.$font-size-meta;
+  display: inline-flex;
+  align-items: center;
+  // 撐到最小觸控尺寸，原本 20px 低於無障礙建議值
+  min-height: v.$tap-target-min;
+  font-size: v.$font-size-nav;
   letter-spacing: v.$letter-spacing-meta;
-  text-transform: uppercase;
 }
 
 .site-sidebar__link.router-link-exact-active {

@@ -12,7 +12,11 @@ $grid-columns: 4;
 // ====== 字級 ======
 $font-sans: 'Helvetica Neue', Helvetica, Arial, 'Noto Sans TC', sans-serif;
 $font-size-meta: 0.6875rem; // 11px，中繼資料
+$font-size-nav: 0.875rem; // 14px，導覽；中文在 11px 下筆畫會糊掉
 $letter-spacing-meta: 0.06em;
+
+// ====== 觸控 ======
+$tap-target-min: 44px;
 
 // ====== 斷點 ======
 $breakpoint-md: 768px;
