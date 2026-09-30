@@ -1,5 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+
+import PageTabs from '@/components/PageTabs.vue'
 </script>
 
 <template>
@@ -11,19 +13,11 @@ import { RouterLink } from 'vue-router'
 
     <!-- 中段刻意留空，構成負空間 -->
 
-    <!-- 底部：導覽 -->
-    <nav class="site-sidebar__foot">
-      <ul class="site-sidebar__list">
-        <li>
-          <RouterLink to="/" class="site-sidebar__link">作品集</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about" class="site-sidebar__link">個人介紹</RouterLink>
-        </li>
-      </ul>
-
+    <!-- 底部：分頁切換與聯絡方式 -->
+    <div class="site-sidebar__foot">
+      <PageTabs />
       <p class="site-sidebar__contact">C3D1997@GMAIL.COM</p>
-    </nav>
+    </div>
   </aside>
 </template>
 
@@ -44,27 +38,8 @@ import { RouterLink } from 'vue-router'
   letter-spacing: 0.08em;
 }
 
-.site-sidebar__list {
-  margin: 0 0 1rem;
-  padding: 0;
-  list-style: none;
-}
-
-.site-sidebar__link {
-  display: inline-flex;
-  align-items: center;
-  // 撐到最小觸控尺寸，原本 20px 低於無障礙建議值
-  min-height: v.$tap-target-min;
-  font-size: v.$font-size-nav;
-  letter-spacing: v.$letter-spacing-meta;
-}
-
-.site-sidebar__link.router-link-exact-active {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
 .site-sidebar__contact {
+  margin-top: 1rem;
   font-size: v.$font-size-meta;
   letter-spacing: v.$letter-spacing-meta;
 }
@@ -74,12 +49,6 @@ import { RouterLink } from 'vue-router'
     flex-direction: row;
     align-items: center;
     padding: 1rem;
-  }
-
-  .site-sidebar__list {
-    display: flex;
-    gap: 1rem;
-    margin: 0;
   }
 
   .site-sidebar__contact {
