@@ -45,9 +45,14 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
           <dd>{{ work.status }}</dd>
         </dl>
 
-        <p class="work-detail__description">{{ work.description }}</p>
+        <p v-if="work.description" class="work-detail__description">
+          {{ work.description }}
+        </p>
+        <p v-else class="work-detail__description work-detail__description--empty">
+          說明待補。
+        </p>
 
-        <ul class="work-detail__skills">
+        <ul v-if="work.skills?.length" class="work-detail__skills">
           <li v-for="skill in work.skills" :key="skill" class="work-detail__skill">
             {{ skill }}
           </li>
@@ -73,7 +78,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
             :alt="work.title"
             class="work-detail__image"
           />
-          <figcaption v-else class="work-detail__caption">無畫面</figcaption>
+          <figcaption v-else class="work-detail__caption">{{ work.status }}</figcaption>
         </figure>
       </div>
     </template>
@@ -145,6 +150,10 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
   max-width: 32em;
   font-size: v.$font-size-body;
   line-height: 1.9;
+}
+
+.work-detail__description--empty {
+  color: v.$color-secondary;
 }
 
 .work-detail__skills {

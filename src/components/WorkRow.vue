@@ -18,7 +18,7 @@ defineProps({
     <header class="work-row__meta">
       <span class="work-row__field">{{ work.index }}. {{ work.title }}</span>
       <span class="work-row__field">{{ work.status }}</span>
-      <span class="work-row__field">{{ work.skills.join('・') }}</span>
+      <span class="work-row__field">{{ work.skills?.join('・') }}</span>
     </header>
 
     <div class="work-row__visual" :style="{ backgroundColor: work.tone }">
@@ -29,7 +29,7 @@ defineProps({
         class="work-row__image"
         loading="lazy"
       />
-      <span v-else class="work-row__placeholder">無畫面</span>
+      <span v-else class="work-row__placeholder">{{ work.status }}</span>
     </div>
   </RouterLink>
 </template>

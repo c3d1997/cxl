@@ -6,8 +6,8 @@
  * @property {number} index - 顯示編號，由大到小排列（新作在上）
  * @property {string} title
  * @property {string} status - 上線狀態，例如 在線／已下架
- * @property {string} description
- * @property {string[]} skills
+ * @property {string} description - 尚未撰寫時為空字串
+ * @property {string[]} skills - 尚未確認時為空陣列
  * @property {string} [link] - 外部連結，無則不顯示
  * @property {string} [image] - 圖片檔名（不含副檔名）；未提供時以色塊代替
  * @property {string} [tone] - 無圖片時的色塊顏色
@@ -29,6 +29,107 @@ const resolveImage = (name) =>
 
 /** @type {Work[]} */
 const rawWorks = [
+  // ====== 現職專案（圖片與說明待補）======
+  {
+    slug: 'line-parking',
+    title: 'LINE PARKING',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#2b2b2b',
+  },
+  {
+    slug: 'line-hotel',
+    title: 'LINE HOTEL',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#4f4f4f',
+  },
+  {
+    slug: 'coupon-checkin',
+    title: '酷碰打卡',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#8d8d8d',
+  },
+  {
+    slug: 'blue-monkey-home',
+    title: '藍猴首頁',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#3a3a3a',
+  },
+  {
+    slug: 'guoge-talk',
+    title: '果哥敲敲話',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#6e6e6e',
+  },
+  {
+    slug: 'good-calendar',
+    title: '好日曆',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#bcbcbc',
+  },
+  {
+    slug: 'winter-melon',
+    title: '冬瓜',
+    status: '待補畫面',
+    description: '',
+    skills: [],
+    tone: '#5c5c5c',
+  },
+
+  // ====== 現職後台專案（無畫面）======
+  {
+    slug: 'message-center',
+    title: '訊息中心',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#252525',
+  },
+  {
+    slug: 'game-module',
+    title: '遊戲模組',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#787878',
+  },
+  {
+    slug: 'used-car',
+    title: '二手車',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#9a9a9a',
+  },
+  {
+    slug: 'headhunting',
+    title: '獵頭',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#333333',
+  },
+  {
+    slug: 'coupon',
+    title: '酷碰',
+    status: '無法提供畫面',
+    description: '',
+    skills: [],
+    tone: '#a3a3a3',
+  },
+
+  // ====== 2023 年前作品 ======
   {
     slug: 'starvibe',
     title: '星達威鉑數位整合行銷',
