@@ -4,6 +4,13 @@ $color-canvas: #f4f4f4; // 右欄底色
 $color-ink: #111111;
 $color-rule: #c9c9c9; // 髮絲線
 $color-secondary: #6b6b6b; // 次要文字
+$color-secondary-strong: #454545; // 次要文字（需要再明確一些時）
+
+// ====== 陰影 ======
+// 書籤僅上、下、左三面投影，右緣貼齊作品清單故不投影
+$shadow-bookmark: -1px 1px 4px rgba(17, 17, 17, 0.08);
+$shadow-bookmark-active: -3px 2px 12px rgba(17, 17, 17, 0.22);
+$shadow-clip: 20px; // clip-path 外擴量，需大於上方最大模糊半徑
 
 // ====== 版面 ======
 $sidebar-width: 35%;
@@ -15,6 +22,7 @@ $font-size-meta: 0.6875rem; // 11px，中繼資料
 $font-size-nav: 0.875rem; // 14px，導覽；中文在 11px 下筆畫會糊掉
 $font-size-body: 0.875rem; // 14px，內文
 $font-size-lead: 1.375rem; // 22px，自述段落
+$font-size-work-meta: 0.875rem; // 14px，作品清單的中繼資料
 $letter-spacing-meta: 0.06em;
 
 // ====== 觸控 ======
@@ -22,3 +30,6 @@ $tap-target-min: 44px;
 
 // ====== 斷點 ======
 $breakpoint-md: 768px;
+// 14px 的中繼資料三欄合計需約 792px（內容欄佔 65%，即視窗約 1220px），
+// 取 1240px 留一點餘裕；窄於此值則收起技術欄，避免三欄同時被截斷
+$breakpoint-lg: 1240px;

@@ -43,8 +43,9 @@ defineProps({
 
 .work-row__meta {
   display: grid;
-  // 標題欄較寬，狀態與技術各佔一份
-  grid-template-columns: 2fr 1fr 1fr;
+  // 比例依現有內容的最長字串配置（14px 下約需 290 / 203 / 299 px）。
+  // 日後若新增更長的標題或技術清單，需重新量測並調整此處與 $breakpoint-lg。
+  grid-template-columns: minmax(0, 1.43fr) minmax(0, 1fr) minmax(0, 1.47fr);
   padding: 0.4rem 0;
   border-top: 1px solid v.$color-rule;
 }
@@ -53,7 +54,7 @@ defineProps({
   // 每欄等量內縮，維持與下方圖片的對應
   padding-left: 0.5rem;
   padding-right: 1rem;
-  font-size: v.$font-size-meta;
+  font-size: v.$font-size-work-meta;
   letter-spacing: v.$letter-spacing-meta;
   white-space: nowrap;
   overflow: hidden;
@@ -86,6 +87,17 @@ defineProps({
   font-size: v.$font-size-meta;
   letter-spacing: v.$letter-spacing-meta;
   mix-blend-mode: difference;
+}
+
+// 寬度不足以容納三欄時收起技術欄，避免三欄同時被截斷
+@media (max-width: v.$breakpoint-lg) {
+  .work-row__meta {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+
+  .work-row__field:nth-child(3) {
+    display: none;
+  }
 }
 
 @media (max-width: v.$breakpoint-md) {

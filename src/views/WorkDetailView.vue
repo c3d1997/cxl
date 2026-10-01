@@ -91,6 +91,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/styles/mixins' as m;
 @use '../assets/styles/variables' as v;
 
 .work-detail {
@@ -98,6 +99,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
   align-items: flex-start;
   min-height: 100vh;
   background-color: v.$color-canvas;
+  @include m.paper-texture;
 }
 
 .work-detail__close {

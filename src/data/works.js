@@ -5,6 +5,7 @@
  * @property {string} slug - 網址代稱，對應 /work/:slug
  * @property {number} index - 顯示編號，由大到小排列（新作在上）
  * @property {string} title
+ * @property {'web' | 'admin'} category - 作品分類，對應索引頁的書籤篩選
  * @property {string} status - 上線狀態，例如 在線／已下架
  * @property {string} description - 尚未撰寫時為空字串
  * @property {string[]} skills - 尚未確認時為空陣列
@@ -32,6 +33,7 @@ const rawWorks = [
   // ====== 現職專案（圖片與說明待補）======
   {
     slug: 'line-parking',
+    category: 'web',
     title: 'LINE PARKING',
     status: '待補畫面',
     description: '',
@@ -40,6 +42,7 @@ const rawWorks = [
   },
   {
     slug: 'line-hotel',
+    category: 'web',
     title: 'LINE HOTEL',
     status: '待補畫面',
     description: '',
@@ -48,6 +51,7 @@ const rawWorks = [
   },
   {
     slug: 'coupon-checkin',
+    category: 'web',
     title: '酷碰打卡',
     status: '待補畫面',
     description: '',
@@ -56,6 +60,7 @@ const rawWorks = [
   },
   {
     slug: 'blue-monkey-home',
+    category: 'web',
     title: '藍猴首頁',
     status: '待補畫面',
     description: '',
@@ -64,6 +69,7 @@ const rawWorks = [
   },
   {
     slug: 'guoge-talk',
+    category: 'web',
     title: '果哥敲敲話',
     status: '待補畫面',
     description: '',
@@ -72,6 +78,7 @@ const rawWorks = [
   },
   {
     slug: 'good-calendar',
+    category: 'web',
     title: '好日曆',
     status: '待補畫面',
     description: '',
@@ -80,6 +87,7 @@ const rawWorks = [
   },
   {
     slug: 'winter-melon',
+    category: 'web',
     title: '冬瓜',
     status: '待補畫面',
     description: '',
@@ -90,6 +98,7 @@ const rawWorks = [
   // ====== 2023 年前作品 ======
   {
     slug: 'starvibe',
+    category: 'web',
     title: '星達威鉑數位整合行銷',
     status: '在線',
     description:
@@ -100,6 +109,7 @@ const rawWorks = [
   },
   {
     slug: 'lotte-xylitol-bts',
+    category: 'web',
     title: 'LOTTE XYLITOL x BTS 防彈少年團',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -110,6 +120,7 @@ const rawWorks = [
   },
   {
     slug: 'yuga-tea',
+    category: 'web',
     title: 'yuga 法國茶道活動網頁',
     status: '已下架（經同意掛載）',
     description:
@@ -120,6 +131,7 @@ const rawWorks = [
   },
   {
     slug: 'shinkong-watermelon-line',
+    category: 'web',
     title: '新光西瓜活動集點 Line 活動網頁',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -130,6 +142,7 @@ const rawWorks = [
   },
   {
     slug: 'hsbc-foreign-currency',
+    category: 'web',
     title: '外幣刷卡活動 — 滙豐（台灣）',
     status: '在線',
     description: '協助匯豐製作資訊網頁，使用 HTML5、CSS3、jQuery 快速構建。',
@@ -139,6 +152,7 @@ const rawWorks = [
   },
   {
     slug: 'hsbc-shop',
+    category: 'web',
     title: '刷卡優惠 — 滙豐（台灣）',
     status: '在線',
     description: '協助匯豐製作資訊網頁，使用 HTML5、CSS3、jQuery 快速構建。',
@@ -148,6 +162,7 @@ const rawWorks = [
   },
   {
     slug: 'jpmorgan-fund',
+    category: 'web',
     title: '摩根投資基金',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -158,6 +173,7 @@ const rawWorks = [
   },
   {
     slug: 'jpmorgan-coffee-line',
+    category: 'web',
     title: '摩根咖啡集點活動 Line 網頁',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -168,6 +184,7 @@ const rawWorks = [
   },
   {
     slug: 'nutrilite-line',
+    category: 'web',
     title: '紐崔萊 1+1 營養密技 Line 活動網頁',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -178,6 +195,7 @@ const rawWorks = [
   },
   {
     slug: 'shinkong-life-60th',
+    category: 'web',
     title: '新光人壽 60 週年 Line 慶祝活動',
     status: '已下架（可查看網頁截圖）',
     description:
@@ -191,6 +209,7 @@ const rawWorks = [
   // 現職
   {
     slug: 'message-center',
+    category: 'admin',
     title: '訊息中心',
     status: '無法提供畫面',
     description: '',
@@ -199,6 +218,7 @@ const rawWorks = [
   },
   {
     slug: 'game-module',
+    category: 'admin',
     title: '遊戲模組',
     status: '無法提供畫面',
     description: '',
@@ -207,6 +227,7 @@ const rawWorks = [
   },
   {
     slug: 'used-car',
+    category: 'admin',
     title: '二手車',
     status: '無法提供畫面',
     description: '',
@@ -215,6 +236,7 @@ const rawWorks = [
   },
   {
     slug: 'headhunting',
+    category: 'admin',
     title: '獵頭',
     status: '無法提供畫面',
     description: '',
@@ -223,6 +245,7 @@ const rawWorks = [
   },
   {
     slug: 'coupon',
+    category: 'admin',
     title: '酷碰',
     status: '無法提供畫面',
     description: '',
@@ -233,6 +256,7 @@ const rawWorks = [
   // 2023 年前
   {
     slug: 'kgi-securities-system',
+    category: 'admin',
     title: '凱基證券共銷查詢系統',
     status: '無法提供畫面',
     description:
@@ -242,6 +266,7 @@ const rawWorks = [
   },
   {
     slug: 'shinkong-watermelon-admin',
+    category: 'admin',
     title: '新光西瓜點數後台紀錄系統',
     status: '無法提供畫面',
     description:
@@ -251,6 +276,7 @@ const rawWorks = [
   },
   {
     slug: 'shinkong-painting-admin',
+    category: 'admin',
     title: '新光全國繪畫比賽後台',
     status: '無法提供畫面',
     description:
@@ -266,6 +292,12 @@ export const works = rawWorks.map((work, position) => ({
   index: rawWorks.length - position,
   imageSrc: resolveImage(work.image),
 }))
+
+/** 索引頁書籤的分類定義；第一項為預設顯示的分類 */
+export const WORK_CATEGORIES = [
+  { value: 'web', label: '網頁設計' },
+  { value: 'admin', label: '後台系統' },
+]
 
 /**
  * 依網址代稱取得單一作品

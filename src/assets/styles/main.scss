@@ -1,3 +1,4 @@
+@use 'mixins' as m;
 @use 'variables' as v;
 
 // ====== 基礎重置 ======
@@ -15,6 +16,7 @@ body {
 
 body {
   background-color: v.$color-canvas;
+  @include m.paper-texture;
   color: v.$color-ink;
   font-family: v.$font-sans;
   -webkit-font-smoothing: antialiased;
