@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 
 import PageTabs from '@/components/PageTabs.vue'
+import RollingCube from '@/components/RollingCube.vue'
 </script>
 
 <template>
@@ -11,7 +12,10 @@ import PageTabs from '@/components/PageTabs.vue'
       <RouterLink to="/" class="site-sidebar__logo">CXL</RouterLink>
     </div>
 
-    <!-- 中段刻意留空，構成負空間 -->
+    <!-- 中段：唯一的動態元素，串起上下兩端 -->
+    <div class="site-sidebar__middle">
+      <RollingCube />
+    </div>
 
     <!-- 底部：分頁切換與聯絡方式 -->
     <div class="site-sidebar__foot">
@@ -30,6 +34,11 @@ import PageTabs from '@/components/PageTabs.vue'
   justify-content: space-between;
   padding: 1.5rem;
   background-color: v.$color-sidebar;
+}
+
+.site-sidebar__middle {
+  display: flex;
+  justify-content: center;
 }
 
 .site-sidebar__logo {
@@ -51,6 +60,7 @@ import PageTabs from '@/components/PageTabs.vue'
     padding: 1rem;
   }
 
+  .site-sidebar__middle,
   .site-sidebar__contact {
     display: none;
   }
